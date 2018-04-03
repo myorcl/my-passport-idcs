@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Node.js integration with IDCS</title>
+<style rel="stylesheet" type="text/css">
+body {
+ font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+<body bgcolor="FFFFFF">
+<div align="center">
+<table width="800" border="0" cellpadding="0" cellspacing="0">
+ <tr>
+  <td width="800" valign="top">
+  <span style="font-size:6px"><br></span>
+  <div align="center">
+   <table width="800" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+     <td colspan="4" height="1" bgcolor="AAAAAA"></td>
+     <td width="5" height="1" bgcolor="FFFFFF"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td rowspan="2" colspan="2" width="542" height="27" bgcolor="#f4cc85" class="class1">&nbsp;&nbsp;Node.js integration with Oracle Identity Cloud Service</td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" height="4" bgcolor="FFFFFF"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0" height="23"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td colspan="2" height="1" bgcolor="AAAAAA"></td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td colspan="2" bgcolor="FFFFFF">
+      <table width="800" border="0" cellpadding="17" cellspacing="0">
+       <tr>
+        <td style="color:999999;line-height:1.6em">
+        <div align="justify">
+
+	    <% if(isAuthenticated) { %>
+              <p> <a href="<%= tenantURL + '/ui/v1/myconsole?root=my-apps' %>" target="idcs_tab">My IDCS Apps</a> <nbsp><nbsp><nbsp><nbsp>|<nbsp><nbsp><nbsp><nbsp>
+                  <a href="<%= tenantURL + '/ui/v1/myconsole?root=my-info' %>" target="idcs_tab">My IDCS Profile</a> <nbsp><nbsp><nbsp><nbsp>|<nbsp><nbsp><nbsp><nbsp>
+	          <a href="/logout">Logout</a> </p>
+	    <% }else{ %>
+		    <a href="/auth/idcs">Log In with IDCS</a>
+	    <% } %>
+
+        </div>
+        </td>
+       </tr>
+      </table>
+     </td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td colspan="2" height="1" bgcolor="AAAAAA"></td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0"></td>
+    </tr>
+    <tr>
+     <td width="1" height="5" bgcolor="FFFFFF"></td>
+     <td width="4" height="5" bgcolor="FFFFFF"></td>
+     <td width="538" height="5" bgcolor="F0F0F0"></td>
+     <td width="1" height="5" bgcolor="F0F0F0"></td>
+     <td width="5" height="5" bgcolor="F0F0F0"></td>
+    </tr>
+   </table>
+  <br>
+   <table width="800" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+     <td colspan="4" height="1" bgcolor="AAAAAA"></td>
+     <td width="5" height="1" bgcolor="FFFFFF"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+
+	    <% if(isAuthenticated) { %>
+     <td rowspan="2" colspan="2" width="542" height="27" bgcolor="#98cdde" class="class1">&nbsp;&nbsp;Welcome <%= myUserSummary %></td>
+	    <% } else { %>
+     <td rowspan="2" colspan="2" width="542" height="27" bgcolor="#98cdde" class="class1">&nbsp;&nbsp;Public Resources</td>
+	    <% } %>
+
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" height="4" bgcolor="FFFFFF"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0" height="23"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td colspan="2" height="1" bgcolor="AAAAAA"></td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td colspan="2" bgcolor="FFFFFF">
+      <table width="800" border="0" cellpadding="17" cellspacing="0">
+       <tr>
+        <td style="color:000000;line-height:1.6em; font-size:12px">
+        <div align="left">
+
+	    <% if(isAuthenticated) { %>
+
+		<p>
+
+                    <p>
+ 			This is the JSON response to your <a href="https://docs.oracle.com/en/cloud/paas/identity-cloud/rest-api/api-self-service-me.html" target="_blank"><b>Me self-service API</b></a> call: 
+
+			<button onclick="myFunction()">Show/Hide</button>
+                    </p>
+
+		    <div id="myDIV" style="display:none; font-size:8px">
+		      <p> <%= myUserDetails %> </p>
+		    </div>
+
+		    <script>
+		      function myFunction() {
+    		    	var x = document.getElementById("myDIV");
+    		    	if (x.style.display === "none") {
+        		    x.style.display = "block";
+    		    	} else {
+        		    x.style.display = "none";
+    		    	}
+		      }
+		    </script>
+
+		</p>
+
+		<p>
+		    <hr>
+		    <center> <a href="https://cloud.oracle.com/opc/paas/ebooks/Oracle_Identity_Cloud.pdf" target="_blank">Download the IDCS eBook<br><img src="./IDCS-ebook.png" alt="IDCS eBook" height="211" width="320"></a> </center>
+		</p>
+
+	    <% } else { %>
+                    <p>
+			<center> <a href="https://go.oracle.com/modernize-security" target="_blank"> <img src="./677x600-lg-cloud-security.jpg" height="425" width="480"> </a> </center>
+		    </p>
+	    <% } %>
+
+        </div>
+        </td>
+       </tr>
+      </table>
+     </td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td colspan="2" height="1" bgcolor="AAAAAA"></td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0"></td>
+    </tr>
+    <tr>
+     <td width="1" height="5" bgcolor="FFFFFF"></td>
+     <td width="4" height="5" bgcolor="FFFFFF"></td>
+     <td width="538" height="5" bgcolor="F0F0F0"></td>
+     <td width="1" height="5" bgcolor="F0F0F0"></td>
+     <td width="5" height="5" bgcolor="F0F0F0"></td>
+    </tr>
+   </table>
+  <br>
+   <table width="800" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+     <td colspan="4" height="1" bgcolor="AAAAAA"></td>
+     <td width="5" height="1" bgcolor="FFFFFF"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td rowspan="2" colspan="2" width="542" height="27" bgcolor="#e3e0db" class="class1">&nbsp;&nbsp;Useful Information</td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" height="4" bgcolor="FFFFFF"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0" height="23"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td colspan="2" height="1" bgcolor="AAAAAA"></td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td colspan="2" bgcolor="FFFFFF">
+      <table width="800" border="0" cellpadding="17" cellspacing="0">
+       <tr>
+        <td style="color:999999;line-height:1.6em">
+        <div align="justify">
+      
+                    <p>
+                  <a href="https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html" target="_blank">IDCS Docs</a>
+		    <nbsp><nbsp><nbsp><nbsp>|<nbsp><nbsp><nbsp><nbsp>
+                  <a href="https://cloud.oracle.com/en_US/security" target="_blank">About Oracle Cloud Security</a>
+                    </p>
+
+        </div>
+        </td>
+       </tr>
+      </table>
+     </td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0"></td>
+    </tr>
+    <tr>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td colspan="2" height="1" bgcolor="AAAAAA"></td>
+     <td width="1" bgcolor="AAAAAA"></td>
+     <td width="5" bgcolor="F0F0F0"></td>
+    </tr>
+    <tr>
+     <td width="1" height="5" bgcolor="FFFFFF"></td>
+     <td width="4" height="5" bgcolor="FFFFFF"></td>
+     <td width="538" height="5" bgcolor="F0F0F0"></td>
+     <td width="1" height="5" bgcolor="F0F0F0"></td>
+     <td width="5" height="5" bgcolor="F0F0F0"></td>
+    </tr>
+   </table>
+  <span style="font-size:6px"><br></span>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td colspan="3" height="10" bgcolor="FFFFFF"></td>
+ </tr>
+ <tr>
+  <td colspan="3" height="1" bgcolor="CCCCCC"></td>
+ </tr>
+ <tr>
+  <td colspan="3" height="5" bgcolor="FFFFFF"></td>
+ </tr>
+ <tr>
+  <td colspan="3" bgcolor="FFFFFF" align="right">
+  <font size="2">Oracle Security Workshops</font>
+  </td>
+ </tr>
+</table>
+</div>
+</body>
+</html>

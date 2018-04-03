@@ -1,0 +1,21 @@
+{
+  "name": "passport-idcs",
+  "version": "1.0.0",
+  "description": "NodeJS IDCS OpenIDConnect Integration",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express-session": "^1.15.6",
+    "express": "^4.16.2",
+    "passport": "^0.4.0",
+    "passport-oauth-oidcs": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "artur.alves@oracle.com",
+  "license": "ISC"
+}
