@@ -1,5 +1,5 @@
 {
-  "name": "passport-idcs",
+  "name": "my-passport-idcs",
   "version": "1.0.0",
   "description": "NodeJS IDCS OpenIDConnect Integration",
   "main": "app.js",
