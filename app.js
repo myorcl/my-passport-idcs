@@ -43,7 +43,8 @@
     discoveryURL: myprops.tenantURL + '/.well-known/idcs-configuration',
     clientID: myprops.clientID,
     clientSecret: myprops.clientSecret,
-    callbackURL: 'https://localhost:8943/auth/idcs/callback',
+    // callbackURL: 'https://PassportIDCS-gse00014232.uscom-east-1.oraclecloud.com:443/auth/idcs/callback',
+    callbackURL: myprops.appURL + '/auth/idcs/callback',
     profileURL: myprops.tenantURL + '/admin/v1/Me',
     passReqToCallback: true
   };
@@ -100,7 +101,16 @@
 //BEGIN: LOAD APP LISTENER
 	// var port = process.env.PORT || 443;
 	var port = process.env.PORT || 8943;
-	server.listen(port, function() {
-		console.log('Ready on https://localhost:' + port + '/');
-	});
+	if (port == 8080) {
+	  // Oracle APAAS using HTTP:8080 with LBaaS HTTPS:443 termination
+	  app.listen(port, function() {
+		console.log('HTTP ready on ' + server.address().address + ':' + 			app.address().port);
+	  });
+	}
+	else {
+	  // Other deployments
+	  server.listen(port, function() {
+		console.log('HTTPS ready on ' + server.address().address + ':' + 			server.address().port);
+	  });
+	}
 //END: LOAD APP LISTENER

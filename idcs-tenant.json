@@ -1,5 +1,6 @@
 {
-  "tenantURL": "https://idcs-1234567890987654321.identity.oraclecloud.com",
-  "clientID": "aabbccddee112233445566778899",
-  "clientSecret": "9c8c9c8c-6655-4d3b-bd56-c83ff38cc83f"
+  "tenantURL": "https://idcs-09463ab151eed4036846cd202eb2f8b21.identity.oraclecloud.com",
+  "clientID": "07fe17cd1b6fc489b91c3ad35b9daf80b",
+  "clientSecret": "0fe631c15-bf70-456e-9336-b348bccc124e",
+  "appURL": "https://PassportIDCS-gse00014232.uscom-east-1.oraclecloud.com:443"
 }

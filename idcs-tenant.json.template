@@ -1,0 +1,5 @@
+{
+  "tenantURL": "https://idcs-1234567890987654321.identity.oraclecloud.com",
+  "clientID": "aabbccddee112233445566778899",
+  "clientSecret": "9c8c9c8c-6655-4d3b-bd56-c83ff38cc83f"
+}
